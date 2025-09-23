@@ -31,21 +31,23 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
-  // Variables pedidas
+  // Variables
   List<int> _historial = [];
   bool _mostrarHistorial = false;
 
   void _incrementCounter() {
     setState(() {
       _counter++;
-      _historial.add(_counter); // Guardar en historial
+      // Guardar en historial
+      _historial.add(_counter);
     });
   }
 
   void _decrementCounter() {
     setState(() {
       _counter--;
-      _historial.add(_counter); // Guardar en historial
+      // Guardar en historial
+      _historial.add(_counter); 
     });
   }
 
@@ -65,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _buildHistorial() {
     if (_historial.isEmpty) {
       return const Text(
-        "No hay historial todavía.",
+        "Historial vacío.",
         style: TextStyle(fontSize: 16, fontStyle: FontStyle.italic),
       );
     }
