@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'second_page.dart'; // Importa la segunda pantalla
 
 void main() {
   runApp(const MyApp());
@@ -31,14 +32,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
-  // Variables
   List<int> _historial = [];
   bool _mostrarHistorial = false;
 
   void _incrementCounter() {
     setState(() {
       _counter++;
-      // Guardar en historial
       _historial.add(_counter);
     });
   }
@@ -46,8 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void _decrementCounter() {
     setState(() {
       _counter--;
-      // Guardar en historial
-      _historial.add(_counter); 
+      _historial.add(_counter);
     });
   }
 
@@ -63,7 +61,6 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  // Método para mostrar historial
   Widget _buildHistorial() {
     if (_historial.isEmpty) {
       return const Text(
@@ -104,13 +101,11 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             const SizedBox(height: 20),
 
-            // Botón mostrar/ocultar historial
             ElevatedButton(
               onPressed: _toggleHistorial,
               child: Text(_mostrarHistorial ? "Ocultar historial" : "Mostrar historial"),
             ),
 
-            // Botón limpiar historial
             ElevatedButton(
               onPressed: _clearHistorial,
               child: const Text("Limpiar historial"),
@@ -118,7 +113,17 @@ class _MyHomePageState extends State<MyHomePage> {
 
             const SizedBox(height: 20),
 
-            // Mostrar historial si está activado
+            // Botón para cambiar a la segunda pantalla
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SecondPage()),
+                );
+              },
+              child: const Text("Ir a segunda pantalla"),
+            ),
+
             if (_mostrarHistorial) _buildHistorial(),
           ],
         ),
