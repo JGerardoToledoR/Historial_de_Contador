@@ -113,14 +113,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
             const SizedBox(height: 20),
 
-            // Botón para cambiar a la segunda pantalla y pasar el contador
+            // Botón para cambiar a la segunda pantalla
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => SecondPage(counterValue: _counter),
-                  ),
+                    builder: (context) => const SecondPage()
+                    ),
                 );
               },
               child: const Text("Ir a segunda pantalla"),

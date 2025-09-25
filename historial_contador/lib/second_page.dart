@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SecondPage extends StatelessWidget {
-  final int counterValue; // Recibe el valor del contador
-
-  const SecondPage({super.key, required this.counterValue});
+  const SecondPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,17 +19,9 @@ class SecondPage extends StatelessWidget {
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 20),
-
-            // Mostrar el valor que viene desde la primera pantalla
-            Text(
-              "El valor actual del contador es: $counterValue",
-              style: const TextStyle(fontSize: 18, color: Colors.deepPurple),
-            ),
-
-            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.pop(context); // Regresar a la pantalla anterior
               },
               child: const Text("Volver a la pantalla principal"),
             ),
